@@ -12,7 +12,8 @@ import plotly.express as px
 import numpy as np
 
 # Load data
-country_df = pd.read_csv('countries.csv')
+country_df = pd.read_csv('SSH_Publications_and_Journals_by_Country.csv')
+disciplines_df = pd.read_csv('SSH_Publications_by_Discipline.csv')
 
 # First Viz
 def viz1():
@@ -117,7 +118,6 @@ def viz7():
 
 # Eight viz
 def viz8():
-    disciplines = pd.read_csv('disciplines.csv')  # replace '<your file>' with your actual file path
 
     colors = ['steelblue', 'skyblue', 'lightskyblue', 'deepskyblue', 'dodgerblue', 'cornflowerblue',
               'mediumblue', 'royalblue', 'mediumslateblue', 'slateblue', 'blueviolet', 'darkviolet',
@@ -128,7 +128,7 @@ def viz8():
     sns.set()  # Imposta le impostazioni predefinite di seaborn
 
     plt.figure(figsize=(10, 6))
-    sns.barplot(data=disciplines, x='Publication_count', y='Discipline', palette=colors)
+    sns.barplot(data=disciplines_df, x='Publication_count', y='Discipline', palette=colors)
     plt.xlabel('Publications')
     plt.ylabel('Discipline')
     plt.title('Publications by Disciplines')
