@@ -148,11 +148,11 @@ def main():
         unsafe_allow_html=True,
     )
     
-    st.title("GitHub Repo")
+    st.title("Software GitHub Repo")
     
     st.markdown(
         """
-        [Here is a link to our software GitHub repo](https://github.com/open-sci/2022-2023-playarists-code)
+        [Here is a link to our software GitHub repo to reproduce](https://github.com/open-sci/2022-2023-playarists-code)
         """,
         unsafe_allow_html=True,
     )
