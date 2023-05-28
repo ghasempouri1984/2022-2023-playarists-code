@@ -1,11 +1,5 @@
-# 2022-2023-playarists
+# 2022-2023-playarists Streamlit Viz App
  The repository for the team Playarists of the Open Science course a.a. 2022/2023
- 
- ## Naming convention of Datasets
- 
- 
-| OMID_id | P_count | Discipline | Country | Open_Access |
-|---------|---------|------------|---------|-------------|
-
-Files will be named in snake case following the structure: title_version_date.format
+ This is Streamlit Viz App repo. For reproducing csv files for updated viz, please go to:
+https://github.com/open-sci/2022-2023-playarists-code
 
