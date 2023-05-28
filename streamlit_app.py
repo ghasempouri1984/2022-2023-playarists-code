@@ -152,7 +152,7 @@ def main():
     
     st.markdown(
         """
-        [Here is a link to our software GitHub repo](https://example.com)
+        [Here is a link to our software GitHub repo](https://github.com/open-sci/2022-2023-playarists-code)
         """,
         unsafe_allow_html=True,
     )
