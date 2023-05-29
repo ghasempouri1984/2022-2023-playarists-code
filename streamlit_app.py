@@ -140,23 +140,31 @@ def viz8():
 def main():
     
     st.title("Article")
-    
-    st.markdown(
-        """
-        [Here is a link to our article](https://doi.org/10.5281/zenodo.7979806)
-        """,
-        unsafe_allow_html=True,
-    )
+
+    if st.button("Show Article"):
+        st.markdown(
+            """
+            Your abstract text goes here.
+            """,
+            unsafe_allow_html=True,
+        )
+
+        st.markdown(
+            """
+            [Here is a link to our article](https://doi.org/10.5281/zenodo.7979806)
+            """,
+            unsafe_allow_html=True,
+        )
     
     st.title("Software GitHub Repo")
-    
+
     st.markdown(
         """
         [Here is a link to our software GitHub repo to reproduce](https://github.com/open-sci/2022-2023-playarists-code)
         """,
         unsafe_allow_html=True,
     )
-   
+      
     st.title("Visualizations")
     st.header("ERIH Plus Journals in OC Meta Coverage")
     viz1()
