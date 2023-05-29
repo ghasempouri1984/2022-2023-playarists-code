@@ -138,10 +138,10 @@ def viz8():
     
 # Streamlit code
 def main():
-    
+  
     st.title("Article")
 
-    if st.button("Show Article"):
+    if st.checkbox("Show/Hide Article"):
         st.markdown(
             """
             Your abstract text goes here.
