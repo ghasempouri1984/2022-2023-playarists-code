@@ -1,9 +1,3 @@
-# Import Streamlit
-#import streamlit as st
-
-# Use Streamlit's magic commands to write "Hello, World!"
-#st.write("Hello, World!")
-
 import streamlit as st
 import pandas as pd
 import seaborn as sns
