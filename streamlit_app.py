@@ -156,6 +156,8 @@ def main():
     viz1()
     st.header("Open Access Status")
     viz2()
+    st.header("Publications by Discipline")
+    viz8()
     st.header("Publications by Country")
     viz3()
     st.header("Publications by Country Top 30")
@@ -166,8 +168,7 @@ def main():
     viz6()
     st.header("Journals by Country Last 30")
     viz7()
-    st.header("Publications by Discipline")
-    viz8()
+    
 
 if __name__ == "__main__":
     main()
