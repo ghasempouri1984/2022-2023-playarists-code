@@ -52,7 +52,7 @@ def viz3():
                         color='Publication_count',
                         hover_name='Country',
                         color_continuous_scale=color_scale,
-                        title='Publications by Country')
+                        title='')
     st.plotly_chart(fig)
 
 # Fourth viz
