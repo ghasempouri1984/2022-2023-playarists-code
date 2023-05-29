@@ -152,7 +152,7 @@ def main():
     )
       
     st.title("Visualizations")
-    st.header("What is the coverage of publications in Social Science and Humanities (SSH) journals (according to ERIH-PLUS) included in OpenCitations Meta?")
+    st.header("The coverage of publications in SSH journals (according to ERIH-PLUS) included in OpenCitations Meta")
     viz1()
     st.header("Open Access Status")
     viz2()
