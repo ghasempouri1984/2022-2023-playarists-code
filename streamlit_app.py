@@ -143,7 +143,7 @@ def main():
     
     st.markdown(
         """
-        [Here is a link to our article](https://example.com)
+        [Here is a link to our article](https://doi.org/10.5281/zenodo.7979806)
         """,
         unsafe_allow_html=True,
     )
