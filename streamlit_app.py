@@ -140,22 +140,14 @@ def viz8():
 def main():
   
     st.title("Article")
-
-    if st.checkbox("Show/Hide Article"):
-        st.markdown(
-            """
-            Your abstract text goes here.
-            """,
-            unsafe_allow_html=True,
-        )
-
-        st.markdown(
-            """
-            [Here is a link to our article](https://doi.org/10.5281/zenodo.7979806)
-            """,
-            unsafe_allow_html=True,
-        )
     
+    st.markdown(
+        """
+        [Here is a link to our article](https://doi.org/10.5281/zenodo.7979806)
+        """,
+        unsafe_allow_html=True,
+    )
+
     st.title("Software GitHub Repo")
 
     st.markdown(
