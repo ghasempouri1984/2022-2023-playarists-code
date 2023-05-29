@@ -17,7 +17,7 @@ def viz1():
     remaining = 100 - coverage_percentage
     coverage_data = [coverage_percentage, remaining]
     labels = ['Covered in OpenCitations Meta', 'Not in OpenCitations Meta']
-    plt.title('ERIH Plus Journals in OC Meta Coverage')
+    #plt.title('ERIH Plus Journals in OC Meta Coverage')
     sns.set_style("whitegrid")
     plt.pie(coverage_data, labels=labels, autopct='%1.1f%%', startangle=90)
     plt.axis('equal')
@@ -30,7 +30,7 @@ def viz2():
     plt.figure(figsize=(6, 6))
     sns.set_style("whitegrid")
     plt.pie(access_counts, labels=access_counts.index, autopct='%1.1f%%')
-    plt.title('Open Access Status')
+    #plt.title('Open Access Status')
     st.pyplot(plt)
 
 # Third Viz
