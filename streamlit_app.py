@@ -332,7 +332,7 @@ def viz13():
     plt.gca().invert_yaxis()
     
     plt.legend()
-    st.pyplot()
+    st.pyplot(fig)
 
 def viz14():
     st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -364,7 +364,7 @@ def viz14():
     plt.gca().invert_yaxis()
     
     plt.legend()
-    st.pyplot()
+    st.pyplot(fig)
 
 # Streamlit code
 def main():
