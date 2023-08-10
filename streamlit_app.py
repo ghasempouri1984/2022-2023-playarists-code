@@ -325,7 +325,7 @@ def viz13():
     # Adding Yticks
     plt.ylabel("Comparing US and UK Publication type", fontweight='bold', fontsize=15)
     plt.xlabel('Disciplines by Publications', fontweight='bold', fontsize=15)
-    plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Disciplines"])
+    plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Discipline"])
     
     plt.gca().invert_yaxis()
     
@@ -355,7 +355,7 @@ def viz14():
     # Adding Yticks
     plt.ylabel("Comparing US and UK Journal type", fontweight='bold', fontsize=15)
     plt.xlabel('Disciplines by Journals', fontweight='bold', fontsize=15)
-    plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Disciplines"])
+    plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Discipline"])
     
     plt.gca().invert_yaxis()
     
