@@ -224,9 +224,50 @@ def viz10():
     st.pyplot(plt)
 
 def viz11():
+    uk_data = uk_data[uk_data['EP_id'] != 422484]
+    # UK
+
+    # Define a colormap - You can choose any colormap you like
+    cmap = plt.get_cmap('viridis')
+    
+    # Create a trace for the scatter plot
+    scatter_trace = go.Scatter(
+        x=uk_data["Publications_in_venue"],
+        y=uk_data["disc_count"],
+        mode='markers',
+        marker=dict(size=10, color=uk_data["Publications_in_venue"], colorscale='viridis'),
+        text=us_data["Original Title"],  # Use the 'metadata' column from us_data for tooltips
+        hoverinfo='text'
+    )
+    
+    # Create the layout for the plot
+    layout = go.Layout(
+        title="US - correlation between number of Disciplines and number of Publications per Journal",
+        xaxis_title="number of Publications in venue",
+        yaxis_title="number of disciplines per venue",
+        width=1000,              # Adjust the width of the plot
+        height=500,             # Adjust the height of the plot
+        margin=dict(l=50, r=50, t=80, b=50),  # Adjust the margins around the plot
+    )
+    
+    # Create the figure and add the trace and layout
+    fig = go.Figure(data=[scatter_trace], layout=layout)
+    
+    # Display the interactive scatter plot
+    st.plotly_chart(fig)  
+
+def viz12():
     # US
     import plotly.graph_objects as go
     import plotly.io as pio
+
+    # remove outliers from data US
+    outliers = [470652, 341568, 341841, 343110]
+    us_data = us_data.sort_values("Publications_in_venue", ascending=False)
+    
+    for idx, row in us_data.iterrows():
+        if row["EP_id"] in outliers:
+            us_data.drop(us_data[us_data['EP_id'] == row["EP_id"]].index, inplace=True)
     
     # Define a colormap - You can choose any colormap you like
     cmap = plt.get_cmap('viridis')
@@ -258,6 +299,62 @@ def viz11():
     #fig.show()
     st.plotly_chart(fig)
 
+def viz13():
+    # Set width of bar
+    barWidth = 0.25
+    fig = plt.subplots(figsize=(12, 8))
+    
+    # Set height of bar
+    UK = uk_disc["Publication_count"]
+    US = us_disc["Publication_count"]
+    
+    # Set position of bar on Y axis
+    br1 = np.arange(len(UK))
+    br2 = [x + barWidth for x in br1]
+    
+    # Make the plot
+    plt.barh(br1, UK, color='b', height=barWidth, edgecolor='black', label='UK')
+    plt.barh(br2, US, color='y', height=barWidth, edgecolor='black', label='US')
+    
+    # Adding Yticks
+    plt.ylabel("Comparing US and UK Publication type", fontweight='bold', fontsize=15)
+    plt.xlabel('Disciplines by Publications', fontweight='bold', fontsize=15)
+    plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Disciplines"])
+    
+    plt.gca().invert_yaxis()
+    
+    plt.legend()
+    st.pyplot()
+
+def viz14():
+    # Set width of bar
+    uk_disc = uk_disc.sort_values('Journal_count', ascending=False)    
+    us_disc = us_disc.sort_values('Journal_count', ascending=False)    
+    
+    barWidth = 0.25
+    fig = plt.subplots(figsize=(12, 8))
+    
+    # Set height of bar
+    UK = uk_disc["Journal_count"]
+    US = us_disc["Journal_count"]
+    
+    # Set position of bar on Y axis
+    br1 = np.arange(len(UK))
+    br2 = [x + barWidth for x in br1]
+    
+    # Make the plot
+    plt.barh(br1, UK, color='b', height=barWidth, edgecolor='black', label='UK')
+    plt.barh(br2, US, color='y', height=barWidth, edgecolor='black', label='US')
+    
+    # Adding Yticks
+    plt.ylabel("Comparing US and UK Journal type", fontweight='bold', fontsize=15)
+    plt.xlabel('Disciplines by Journals', fontweight='bold', fontsize=15)
+    plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Disciplines"])
+    
+    plt.gca().invert_yaxis()
+    
+    plt.legend()
+    st.pyplot()
 
 # Streamlit code
 def main():
@@ -308,9 +405,14 @@ def main():
     
     st.header("Scatterplot for Correlation bw Number of Disciplines and Number of Publications per Journal")
     viz9()
-    viz10()
-
     viz11()
+    viz10()
+    viz12()
+
+
+    st.header("Barchart for disciplines by Publications and Journals, comparing the two countries")
+    viz13()
+    viz14()
     
     
 
