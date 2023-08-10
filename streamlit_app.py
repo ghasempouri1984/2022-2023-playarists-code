@@ -256,7 +256,8 @@ def viz11():
     
     # Display the interactive scatter plot
     #fig.show()
-    st.pyplot(plt)
+    st.plotly_chart(fig)
+
 
 # Streamlit code
 def main():
