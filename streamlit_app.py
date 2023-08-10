@@ -224,17 +224,17 @@ def viz10():
     st.pyplot(plt)
 
 # UK
-uk_data = uk_data[uk_data['EP_id'] != 422484]
+filtered_uk_data = uk_data[uk_data['EP_id'] != 422484]
 def viz11():
     # Define a colormap - You can choose any colormap you like
     cmap = plt.get_cmap('viridis')
     
     # Create a trace for the scatter plot
     scatter_trace = go.Scatter(
-        x=uk_data["Publications_in_venue"],
-        y=uk_data["disc_count"],
+        x=filtered_uk_data["Publications_in_venue"],
+        y=filtered_uk_data["disc_count"],
         mode='markers',
-        marker=dict(size=10, color=uk_data["Publications_in_venue"], colorscale='viridis'),
+        marker=dict(size=10, color=filtered_uk_data["Publications_in_venue"], colorscale='viridis'),
         text=us_data["Original Title"],  # Use the 'metadata' column from us_data for tooltips
         hoverinfo='text'
     )
@@ -257,11 +257,11 @@ def viz11():
 
 # remove outliers from data US
 outliers = [470652, 341568, 341841, 343110]
-us_data = us_data.sort_values("Publications_in_venue", ascending=False)
+filtered_us_data = us_data.sort_values("Publications_in_venue", ascending=False)
 
 for idx, row in us_data.iterrows():
     if row["EP_id"] in outliers:
-        us_data.drop(us_data[us_data['EP_id'] == row["EP_id"]].index, inplace=True)
+        filtered_us_data.drop(filtered_us_data[filtered_us_data['EP_id'] == row["EP_id"]].index, inplace=True)
 def viz12():
     # US
     import plotly.graph_objects as go
@@ -272,10 +272,10 @@ def viz12():
     
     # Create a trace for the scatter plot
     scatter_trace = go.Scatter(
-        x=us_data["Publications_in_venue"],
-        y=us_data["disc_count"],
+        x=filtered_us_data["Publications_in_venue"],
+        y=filtered_us_data["disc_count"],
         mode='markers',
-        marker=dict(size=10, color=us_data["Publications_in_venue"], colorscale='viridis'),
+        marker=dict(size=10, color=filtered_us_data["Publications_in_venue"], colorscale='viridis'),
         text=us_data["Original Title"],  # Use the 'metadata' column from us_data for tooltips
         hoverinfo='text'
     )
