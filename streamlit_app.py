@@ -292,7 +292,7 @@ def viz12():
     
     # Create the layout for the plot
     layout = go.Layout(
-        title="US - correlation between number of Disciplines and number of Publications per Journal",
+        title="UK - correlation between number of Disciplines and number of Publications per Journal",
         xaxis_title="number of Publications in venue",
         yaxis_title="number of disciplines per venue",
         width=1000,              # Adjust the width of the plot
