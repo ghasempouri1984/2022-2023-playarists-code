@@ -255,7 +255,8 @@ def viz11():
     fig = go.Figure(data=[scatter_trace], layout=layout)
     
     # Display the interactive scatter plot
-    fig.show()
+    #fig.show()
+    st.pyplot(plt)
 
 # Streamlit code
 def main():
