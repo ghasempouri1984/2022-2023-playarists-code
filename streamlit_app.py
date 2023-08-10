@@ -2,12 +2,23 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import plotly.express as px
 import numpy as np
+
 
 # Load data
 country_df = pd.read_csv('SSH_Publications_and_Journals_by_Country.csv')
 disciplines_df = pd.read_csv('SSH_Publications_by_Discipline.csv')
+
+uk_data = pd.read_csv("uk_data.csv")
+us_data = pd.read_csv("us_data.csv")
+
+uk_data = uk_data.sort_values('Publications_in_venue', ascending=False)
+us_data = us_data.sort_values('Publications_in_venue', ascending=False)
+
+uk_disc = pd.read_csv("uk_disciplines_count.csv")
+us_disc = pd.read_csv("us_disciplines_count.csv")
 
 # First Viz
 def viz1():
@@ -130,6 +141,88 @@ def viz8():
 
     st.pyplot(plt)
     
+    # UK
+def viz9():
+    plt.figure(figsize=(20, 7))
+    
+    plt.title("UK - correlation between number of Disciplines and number of Publications per Journal", fontweight="bold", fontsize=15)
+    
+    # Define a colormap - You can choose any colormap you like
+    cmap = plt.get_cmap('viridis')
+    
+    # Customize scatterplot style
+    plt.scatter(
+        uk_data["Publications_in_venue"],
+        uk_data["disc_count"],
+        marker='s',                     # Use squares as markers
+        c=uk_data["Publications_in_venue"],        # Set marker color based on x-axis values
+        cmap=cmap,                      # Use the defined colormap
+        s=50,                           # Set marker size to 50
+        alpha=0.7,                      # Set marker transparency to 0.7
+        vmin=0,                         # Minimum value for color mapping
+        vmax=15000                      # Maximum value for color mapping
+    )
+    
+    
+    plt.xlabel("number of Publications in venue")
+    plt.ylabel("number of disciplines per venue")
+    
+    # Set custom x and y axis ranges
+    plt.xlim(0, 15000)
+    plt.ylim(0, 23)  # Shorten the y-axis range to 0-10
+    
+    # Set custom x and y ticks
+    plt.xticks(range(0, 15000, 1000))  # One tick every 1000 on the x-axis
+    plt.yticks(range(23))  # One tick every integer on the y-axis
+    
+    # Adjust the spacing around the plot
+    plt.subplots_adjust(left=0.1, right=0.9, bottom=0.1, top=0.9)
+    
+    #plt.show()
+    st.pyplot(plt)
+
+def viz10():
+    plt.figure(figsize=(20, 7))
+
+    plt.title("US - correlation between number of Disciplines and number of Publications per Journal", fontweight="bold", fontsize=15)
+    
+    # Define a colormap - You can choose any colormap you like
+    cmap = plt.get_cmap('viridis')
+    
+    # Normalize the x-axis values to the range [0, 1] to use them for color mapping
+    '''x_values = uk_data["Publications_in_venue"]
+    x_min, x_max = np.min(x_values), np.max(x_values)
+    x_normalized = (x_values - x_min) / (x_max - x_min)'''
+    
+    # Customize scatterplot style
+    plt.scatter(
+        us_data["Publications_in_venue"],
+        us_data["disc_count"],
+        marker='s',                     # Use squares as markers
+        c=us_data["Publications_in_venue"],        # Set marker color based on x-axis values
+        cmap=cmap,                      # Use the defined colormap
+        s=50,                           # Set marker size to 50
+        alpha=0.7,                      # Set marker transparency to 0.7
+        vmin=0,                         # Minimum value for color mapping
+        vmax=15000                      # Maximum value for color mapping
+    )
+    
+    plt.xlabel("number of Publications in venue")
+    plt.ylabel("number of disciplines per venue")
+    
+    # Set custom x and y axis ranges
+    plt.xlim(0, 36000)
+    plt.ylim(0, 23)  # Shorten the y-axis range to 0-10
+    
+    # Set custom x and y ticks
+    plt.xticks(range(0, 36000, 2000))  # One tick every 1000 on the x-axis
+    plt.yticks(range(23))  # One tick every integer on the y-axis
+    
+    # Adjust the spacing around the plot
+    plt.subplots_adjust(left=0.1, right=0.9, bottom=0.1, top=0.9)
+
+    st.pyplot(plt)
+
 # Streamlit code
 def main():
   
@@ -152,22 +245,37 @@ def main():
     )
       
     st.title("Visualizations")
+    
     st.header("The coverage of publications in SSH journals (according to ERIH-PLUS) included in OpenCitations Meta")
     viz1()
+    
     st.header("Open Access Status")
     viz2()
+    
     st.header("Publications by Discipline")
     viz8()
+    
     st.header("Publications by Country")
     viz3()
+    
     st.header("Publications by Country Top 30")
     viz4()
+    
     st.header("Journals by Country Top 30")
     viz5()
+    
     st.header("Publications by Country Last 30")
     viz6()
+    
     st.header("Journals by Country Last 30")
     viz7()
+    
+    st.header("Scatterplot for Correlation bw Number of Disciplines and Number of Publications per Journal")
+    viz9()
+    viz10()
+
+    
+    
     
 
 if __name__ == "__main__":
