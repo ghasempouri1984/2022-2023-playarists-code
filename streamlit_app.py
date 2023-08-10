@@ -306,6 +306,8 @@ def viz12():
     st.plotly_chart(fig)
 
 def viz13():
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+
     # Set width of bar
     barWidth = 0.25
     fig, ax = plt.subplots(figsize=(12, 8))
@@ -333,6 +335,8 @@ def viz13():
     st.pyplot()
 
 def viz14():
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+
     # Set width of bar
     sorted_uk_disc = uk_disc.sort_values('Journal_count', ascending=False)    
     sorted_us_disc = us_disc.sort_values('Journal_count', ascending=False)    
