@@ -141,7 +141,7 @@ def viz8():
 
     st.pyplot(plt)
     
-    # UK
+# UK
 def viz9():
     plt.figure(figsize=(20, 7))
     
@@ -180,7 +180,7 @@ def viz9():
     
     #plt.show()
     st.pyplot(plt)
-
+# US
 def viz10():
     plt.figure(figsize=(20, 7))
 
@@ -222,6 +222,40 @@ def viz10():
     plt.subplots_adjust(left=0.1, right=0.9, bottom=0.1, top=0.9)
 
     st.pyplot(plt)
+
+def viz11()
+    # US
+    import plotly.graph_objects as go
+    import plotly.io as pio
+    
+    # Define a colormap - You can choose any colormap you like
+    cmap = plt.get_cmap('viridis')
+    
+    # Create a trace for the scatter plot
+    scatter_trace = go.Scatter(
+        x=us_data["Publications_in_venue"],
+        y=us_data["disc_count"],
+        mode='markers',
+        marker=dict(size=10, color=us_data["Publications_in_venue"], colorscale='viridis'),
+        text=us_data["Original Title"],  # Use the 'metadata' column from us_data for tooltips
+        hoverinfo='text'
+    )
+    
+    # Create the layout for the plot
+    layout = go.Layout(
+        title="US - correlation between number of Disciplines and number of Publications per Journal",
+        xaxis_title="number of Publications in venue",
+        yaxis_title="number of disciplines per venue",
+        width=1000,              # Adjust the width of the plot
+        height=500,             # Adjust the height of the plot
+        margin=dict(l=50, r=50, t=80, b=50),  # Adjust the margins around the plot
+    )
+    
+    # Create the figure and add the trace and layout
+    fig = go.Figure(data=[scatter_trace], layout=layout)
+    
+    # Display the interactive scatter plot
+    fig.show()
 
 # Streamlit code
 def main():
