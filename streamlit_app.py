@@ -415,9 +415,9 @@ def main():
     
     st.header("Scatterplot for Correlation bw Number of Disciplines and Number of Publications per Journal")
     viz9()
-    viz11()
-    viz10()
     viz12()
+    viz10()
+    viz11()
 
 
     st.header("Barchart for disciplines by Publications and Journals, comparing the two countries")
