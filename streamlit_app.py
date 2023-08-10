@@ -231,7 +231,7 @@ for idx, row in filtered_us_data.iterrows():
     if row["EP_id"] in outliers:
         filtered_us_data.drop(filtered_us_data[filtered_us_data['EP_id'] == row["EP_id"]].index, inplace=True)
 
-def viz11()
+def viz11():
     # US
     import plotly.graph_objects as go
     import plotly.io as pio
