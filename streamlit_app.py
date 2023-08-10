@@ -334,15 +334,15 @@ def viz13():
 
 def viz14():
     # Set width of bar
-    uk_disc = uk_disc.sort_values('Journal_count', ascending=False)    
-    us_disc = us_disc.sort_values('Journal_count', ascending=False)    
+    sorted_uk_disc = uk_disc.sort_values('Journal_count', ascending=False)    
+    sorted_us_disc = us_disc.sort_values('Journal_count', ascending=False)    
     
     barWidth = 0.25
     fig = plt.subplots(figsize=(12, 8))
     
     # Set height of bar
-    UK = uk_disc["Journal_count"]
-    US = us_disc["Journal_count"]
+    UK = sorted_uk_disc["Journal_count"]
+    US = sorted_us_disc["Journal_count"]
     
     # Set position of bar on Y axis
     br1 = np.arange(len(UK))
