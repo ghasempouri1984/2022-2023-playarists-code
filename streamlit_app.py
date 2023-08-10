@@ -223,15 +223,16 @@ def viz10():
 
     st.pyplot(plt)
 
-# remove outliers from data US
-outliers = [470652, 341568, 341841, 343110]
-filtered_us_data = us_data.sort_values("Publications_in_venue", ascending=False)
 
-for idx, row in filtered_us_data.iterrows():
-    if row["EP_id"] in outliers:
-        filtered_us_data.drop(filtered_us_data[filtered_us_data['EP_id'] == row["EP_id"]].index, inplace=True)
 
 def viz11():
+    # remove outliers from data US
+    outliers = [470652, 341568, 341841, 343110]
+    filtered_us_data = us_data.sort_values("Publications_in_venue", ascending=False)
+    
+    for idx, row in filtered_us_data.iterrows():
+        if row["EP_id"] in outliers:
+            filtered_us_data.drop(filtered_us_data[filtered_us_data['EP_id'] == row["EP_id"]].index, inplace=True)
     # US
     import plotly.graph_objects as go
     import plotly.io as pio
@@ -264,8 +265,9 @@ def viz11():
     # Display the interactive scatter plot
     st.plotly_chart(fig)
 
-filtered_uk_data = uk_data[uk_data['EP_id'] != 422484]
+
 def viz12():
+    filtered_uk_data = uk_data[uk_data['EP_id'] != 422484]
     # UK
     # Define a colormap - You can choose any colormap you like
     cmap = plt.get_cmap('viridis')
