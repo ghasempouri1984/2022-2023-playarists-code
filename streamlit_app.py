@@ -308,7 +308,7 @@ def viz12():
 def viz13():
     # Set width of bar
     barWidth = 0.25
-    fig = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(12, 8))
     
     # Set height of bar
     UK = uk_disc["Publication_count"]
@@ -338,7 +338,7 @@ def viz14():
     sorted_us_disc = us_disc.sort_values('Journal_count', ascending=False)    
     
     barWidth = 0.25
-    fig = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(12, 8))
     
     # Set height of bar
     UK = sorted_uk_disc["Journal_count"]
