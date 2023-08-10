@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import plotly.express as px
 import numpy as np
-
+import plotly.graph_objects as go
+import plotly.io as pio
 
 # Load data
 country_df = pd.read_csv('SSH_Publications_and_Journals_by_Country.csv')
