@@ -223,7 +223,7 @@ def viz10():
 
     st.pyplot(plt)
 
-def viz11()
+def viz11():
     # US
     import plotly.graph_objects as go
     import plotly.io as pio
