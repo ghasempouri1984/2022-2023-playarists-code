@@ -20,6 +20,7 @@ us_data = us_data.sort_values('Publications_in_venue', ascending=False)
 
 uk_disc = pd.read_csv("uk_disciplines_count.csv")
 us_disc = pd.read_csv("us_disciplines_count.csv")
+eu_disc = pd.read_csv("eu_disciplines_count.csv")
 
 # First Viz
 def viz1():
@@ -363,7 +364,33 @@ def viz14():
     
     plt.legend()
     st.pyplot(fig)
-
+def viz15():
+    # Set width of bar
+    barWidth = 0.25
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    # Set height of bar
+    EU = eu_disc["Publication_count"]
+    US = us_disc["Publication_count"]
+    
+    # Set position of bar on Y axis
+    br1 = np.arange(len(EU))
+    br2 = [x + barWidth for x in br1]
+    
+    # Make the plot
+    plt.barh(br1, EU, color='b', height=barWidth, edgecolor='black', label='EU')
+    plt.barh(br2, US, color='y', height=barWidth, edgecolor='black', label='US')
+    
+    # Adding Yticks
+    plt.ylabel("Comparing US and EU Publication type", fontweight='bold', fontsize=15)
+    plt.xlabel('Disciplines by Publications', fontweight='bold', fontsize=15)
+    plt.yticks([r + barWidth for r in range(len(EU))], eu_disc["Discipline"])
+    
+    plt.gca().invert_yaxis()
+    
+    plt.legend()
+    st.pyplot(fig)
+    
 # Streamlit code
 def main():
   
@@ -417,6 +444,8 @@ def main():
     #viz10()
     viz11()
 
+    st.header("### Barchart for disciplines comparing US and EU")
+    viz15()
 
     st.header("Barchart for disciplines by Publications and Journals, comparing the two countries")
     viz13()
