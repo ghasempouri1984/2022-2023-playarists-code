@@ -246,7 +246,7 @@ def viz11():
         y=filtered_us_data["disc_count"],
         mode='markers',
         marker=dict(size=10, color=filtered_us_data["Publications_in_venue"], colorscale='viridis'),
-        text=filtered_us_data["Original Title"],  # Use the 'metadata' column from us_data for tooltips
+        text=filtered_us_data["Original_Title"],  # Use the 'metadata' column from us_data for tooltips
         hoverinfo='text'
     )
     
@@ -285,7 +285,7 @@ def viz12():
         y=filtered_uk_data["disc_count"],
         mode='markers',
         marker=dict(size=10, color=filtered_uk_data["Publications_in_venue"], colorscale='viridis'),
-        text=filtered_us_data["Original Title"],  # Use the 'metadata' column from us_data for tooltips
+        text=filtered_us_data["Original_Title"],  # Use the 'metadata' column from us_data for tooltips
         hoverinfo='text'
     )
     
