@@ -414,9 +414,9 @@ def main():
     viz7()
     
     st.header("Scatterplot for Correlation bw Number of Disciplines and Number of Publications per Journal")
-    viz9()
+    #viz9()
     viz12()
-    viz10()
+    #viz10()
     viz11()
 
 
