@@ -39,9 +39,9 @@ def viz1():
 # Second Viz
 def viz2():
     meta_coverage_df = pd.read_csv('SSH_Publications_in_OC_Meta_and_Open_Access_status.csv')  # replace '<your file>' with your actual file path
-    #access_counts = meta_coverage_df['Open Access'].value_counts()
-    access_df_true = meta_coverage_df.query("Open_Access == True")
-    access_counts = len(access_df_true)
+    access_counts = meta_coverage_df['Open Access'].value_counts()
+    #access_df_true = meta_coverage_df.query("Open_Access == True")
+    #access_counts = len(access_df_true)
 
     plt.figure(figsize=(6, 6))
     sns.set_style("whitegrid")
