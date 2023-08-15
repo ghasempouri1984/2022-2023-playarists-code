@@ -143,6 +143,7 @@ def viz8():
     st.pyplot(plt)
     
 # UK
+'''
 def viz9():
     plt.figure(figsize=(20, 7))
     
@@ -180,8 +181,10 @@ def viz9():
     plt.subplots_adjust(left=0.1, right=0.9, bottom=0.1, top=0.9)
     
     #plt.show()
-    #st.pyplot(plt)
+    st.pyplot(plt)
+'''
 # US
+'''
 def viz10():
     plt.figure(figsize=(20, 7))
 
@@ -222,9 +225,9 @@ def viz10():
     # Adjust the spacing around the plot
     plt.subplots_adjust(left=0.1, right=0.9, bottom=0.1, top=0.9)
 
-    #st.pyplot(plt)
+    st.pyplot(plt)
 
-
+'''
 
 def viz11():
     # remove outliers from data US
