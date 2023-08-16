@@ -360,7 +360,7 @@ def viz14():
     
     # Adding Yticks
     plt.ylabel("Journals by Disciplines with Mega Journals", fontweight='bold', fontsize=15)
-    plt.xlabel('Disciplines by Journals', fontweight='bold', fontsize=15)
+    plt.xlabel('Journals by Disciplines', fontweight='bold', fontsize=15)
     plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Discipline"])
     
     plt.gca().invert_yaxis()
