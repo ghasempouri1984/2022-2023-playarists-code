@@ -323,11 +323,11 @@ def viz13():
     br2 = [x + barWidth for x in br1]
     
     # Make the plot
-    plt.barh(br1, UK, color='b', height=barWidth, edgecolor='black', label='UK')
+    plt.barh(br1, UK, color='b', height=barWidth, edgecolor='black', label='EU')
     plt.barh(br2, US, color='y', height=barWidth, edgecolor='black', label='US')
     
     # Adding Yticks
-    plt.ylabel("Comparing US and UK Publication type", fontweight='bold', fontsize=15)
+    plt.ylabel("Publications by Disciplines with Mega Journals", fontweight='bold', fontsize=15)
     plt.xlabel('Disciplines by Publications', fontweight='bold', fontsize=15)
     plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Discipline"])
     
@@ -355,11 +355,11 @@ def viz14():
     br2 = [x + barWidth for x in br1]
     
     # Make the plot
-    plt.barh(br1, UK, color='b', height=barWidth, edgecolor='black', label='UK')
+    plt.barh(br1, UK, color='b', height=barWidth, edgecolor='black', label='EU')
     plt.barh(br2, US, color='y', height=barWidth, edgecolor='black', label='US')
     
     # Adding Yticks
-    plt.ylabel("Comparing US and UK Journal type", fontweight='bold', fontsize=15)
+    plt.ylabel("Journals by Disciplines with Mega Journals", fontweight='bold', fontsize=15)
     plt.xlabel('Disciplines by Journals', fontweight='bold', fontsize=15)
     plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Discipline"])
     
@@ -449,10 +449,8 @@ def main():
 
     st.header("Comparison between US and EU's disciplinary distribution")
     viz15()
-
-    st.header("Barchart for disciplines by Publications and Journals, comparing EU and US")
-    #viz13()
-    #viz14()
+    viz13()
+    viz14()
     
     
 
