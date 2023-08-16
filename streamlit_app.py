@@ -385,7 +385,7 @@ def viz15():
     plt.barh(br2, US, color='y', height=barWidth, edgecolor='black', label='US')
     
     # Adding Yticks
-    plt.ylabel("Comparing US and EU Publication type", fontweight='bold', fontsize=15)
+    plt.ylabel("Comparing US and EU Publication without Mega Journals", fontweight='bold', fontsize=15)
     plt.xlabel('Disciplines by Publications', fontweight='bold', fontsize=15)
     plt.yticks([r + barWidth for r in range(len(EU))], eu_disc["Discipline"])
     
