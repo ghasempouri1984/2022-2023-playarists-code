@@ -447,7 +447,7 @@ def main():
     #viz10()
     viz11()
 
-    st.header("Barchart for disciplines comparing US and EU")
+    st.header("Comparison between US and EU's disciplinary distribution")
     viz15()
 
     st.header("Barchart for disciplines by Publications and Journals, comparing EU and US")
