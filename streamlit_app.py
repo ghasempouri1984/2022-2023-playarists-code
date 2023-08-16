@@ -450,9 +450,9 @@ def main():
     st.header("Barchart for disciplines comparing US and EU")
     viz15()
 
-    st.header("Barchart for disciplines by Publications and Journals, comparing the two countries")
-    viz13()
-    viz14()
+    st.header("Barchart for disciplines by Publications and Journals, comparing EU and US")
+    #viz13()
+    #viz14()
     
     
 
