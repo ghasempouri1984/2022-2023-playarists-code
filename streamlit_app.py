@@ -328,7 +328,7 @@ def viz13():
     
     # Adding Yticks
     plt.ylabel("Publications by Disciplines with Mega Journals", fontweight='bold', fontsize=15)
-    plt.xlabel('Disciplines by Publications', fontweight='bold', fontsize=15)
+    plt.xlabel('Publications by Disciplines', fontweight='bold', fontsize=15)
     plt.yticks([r + barWidth for r in range(len(UK))], uk_disc["Discipline"])
     
     plt.gca().invert_yaxis()
@@ -386,7 +386,7 @@ def viz15():
     
     # Adding Yticks
     plt.ylabel("Comparing US and EU Publication without Mega Journals", fontweight='bold', fontsize=15)
-    plt.xlabel('Disciplines by Publications', fontweight='bold', fontsize=15)
+    plt.xlabel('Publications by Disciplines', fontweight='bold', fontsize=15)
     plt.yticks([r + barWidth for r in range(len(EU))], eu_disc["Discipline"])
     
     plt.gca().invert_yaxis()
